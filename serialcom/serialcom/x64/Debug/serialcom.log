@@ -1,0 +1,4 @@
+﻿  MainForm.cpp
+G:\Learning GUI\serialcom\serialcom\MainForm.cpp(7,1): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
+  MainForm.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  serialcom.vcxproj -> G:\Learning GUI\serialcom\x64\Debug\serialcom.exe

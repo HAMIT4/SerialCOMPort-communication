@@ -1,0 +1,3 @@
+G:\Learning GUI\serialcom\serialcom\x64\Debug\serialcom.vcxproj.AssemblyReference.cache
+G:\Learning GUI\serialcom\serialcom\x64\Debug\serialcom.MainForm.resources
+G:\Learning GUI\serialcom\serialcom\x64\Debug\serialcom.vcxproj.GenerateResource.cache
