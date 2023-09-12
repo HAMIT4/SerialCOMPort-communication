@@ -73,8 +73,9 @@ namespace serialcom {
 	private: System::Windows::Forms::TextBox^ tbSend;
 
 	private: System::Windows::Forms::Button^ btnSend;
-	private: System::Windows::Forms::Button^ btnReceive;
+
 	private: System::Windows::Forms::TextBox^ tbRecieve;
+	private: System::Windows::Forms::Label^ label3;
 
 
 
@@ -105,8 +106,8 @@ namespace serialcom {
 			this->btnConnect = (gcnew System::Windows::Forms::Button());
 			this->tbSend = (gcnew System::Windows::Forms::TextBox());
 			this->btnSend = (gcnew System::Windows::Forms::Button());
-			this->btnReceive = (gcnew System::Windows::Forms::Button());
 			this->tbRecieve = (gcnew System::Windows::Forms::TextBox());
+			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// cbPorts
@@ -180,33 +181,33 @@ namespace serialcom {
 			this->btnSend->UseVisualStyleBackColor = true;
 			this->btnSend->Click += gcnew System::EventHandler(this, &MainForm::btnSend_Click);
 			// 
-			// btnReceive
-			// 
-			this->btnReceive->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->btnReceive->Location = System::Drawing::Point(350, 57);
-			this->btnReceive->Name = L"btnReceive";
-			this->btnReceive->Size = System::Drawing::Size(86, 37);
-			this->btnReceive->TabIndex = 8;
-			this->btnReceive->Text = L"Recieve";
-			this->btnReceive->UseVisualStyleBackColor = true;
-			this->btnReceive->Click += gcnew System::EventHandler(this, &MainForm::btnReceive_Click);
-			// 
 			// tbRecieve
 			// 
-			this->tbRecieve->Location = System::Drawing::Point(452, 57);
+			this->tbRecieve->Location = System::Drawing::Point(452, 66);
 			this->tbRecieve->Multiline = true;
 			this->tbRecieve->Name = L"tbRecieve";
-			this->tbRecieve->Size = System::Drawing::Size(236, 37);
+			this->tbRecieve->Size = System::Drawing::Size(236, 43);
 			this->tbRecieve->TabIndex = 9;
+			this->tbRecieve->TextChanged += gcnew System::EventHandler(this, &MainForm::tbRecieve_TextChanged);
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->Location = System::Drawing::Point(347, 66);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(95, 18);
+			this->label3->TabIndex = 10;
+			this->label3->Text = L"Received Data";
 			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(700, 328);
+			this->Controls->Add(this->label3);
 			this->Controls->Add(this->tbRecieve);
-			this->Controls->Add(this->btnReceive);
 			this->Controls->Add(this->btnSend);
 			this->Controls->Add(this->tbSend);
 			this->Controls->Add(this->btnConnect);
@@ -258,7 +259,7 @@ namespace serialcom {
 	private: System::Void btnSend_Click(System::Object^ sender, System::EventArgs^ e) {
 		serialPort1->WriteLine(tbSend->Text);
 	}
-	private: System::Void btnReceive_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void tbRecieve_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 		tbRecieve->AppendText(serialPort1->ReadLine() + "\n");
 	}
 };
